@@ -22,5 +22,5 @@
 #        msg: "{{ '192.0.2.0/24' | ansible.utils.ipaddr('range_usable') }}"
 #        msg: "{{ '192.0.2.0/24' | ansible.utils.ipaddr(8) }}"
 #        msg: "{{ '192.0.2.0/24' | ansible.utils.network_in_usable('192.0.2.250') }}"
-        msg: "{{ '192.0.2.5/24' | ansible.utils.ipaddr('next_usable') }}"
+#        msg: "{{ '192.0.2.5/24' | ansible.utils.ipaddr('next_usable') }}"
 

@@ -1,0 +1,11 @@
+---
+- name: Query server times and store them locally
+  hosts: web_servers
+  gather_facts: true
+  become: true
+
+  tasks:
+    - name: Remove server times
+      ansible.builtin.file:
+        path: /tmp/times.txt
+        state: absent

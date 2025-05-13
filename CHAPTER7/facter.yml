@@ -1,0 +1,7 @@
+---
+- name: Fact collection
+  hosts: all
+  tasks:
+    - name: print facts
+      ansible.builtin.debug:
+        var: ansible_facts.eth0
