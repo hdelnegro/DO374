@@ -1,0 +1,14 @@
+---
+- name:  demo
+  hosts: localhost
+  gather_facts: false
+  vars:
+    hostsl: "{{ lookup('ansible.builtin.file', '/etc/hosts', '/etc/issue') }}"
+    hostsq: "{{ query('ansible.builtin.file', '/etc/hosts', '/etc/issue') }}"
+  tasks:
+    - name: Shows the lookup
+      ansible.builtin.debug:
+        var: "{{ item }}"
+      loop:
+        - hostsl
+        - hostsq

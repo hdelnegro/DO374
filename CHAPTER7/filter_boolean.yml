@@ -1,0 +1,14 @@
+- name: Default filter examples
+  hosts: localhost
+  tasks:
+    - name: Check pattern value
+      vars:
+        pattern: "some text"
+      ansible.builtin.debug:
+        msg: "{{ pattern }}"
+    - name: Check boolean conversion
+      vars:
+        pattern: "true"
+      ansible.builtin.debug:
+        msg: "{{ pattern | bool }}"
+

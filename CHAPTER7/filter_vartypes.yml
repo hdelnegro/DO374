@@ -1,0 +1,9 @@
+---
+- name: Default filter examples
+  hosts: localhost
+  tasks:
+    - name: Default filter examples
+      vars:
+        pattern: "some text"
+      ansible.builtin.debug:
+        msg: "{{ [ a, b, c ] [ c, d, e ] }}"

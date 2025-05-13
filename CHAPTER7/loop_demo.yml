@@ -1,0 +1,23 @@
+---
+- name:  demo
+  hosts: localhost
+  gather_facts: false
+  vars:
+    usersa:
+      - Hernan
+      - Alexander
+      - Ana
+      - Deivis
+    usersb:
+      - Harold
+      - Jairo
+      - Jesus
+      - Jose
+      - Paola
+  tasks:
+    - name: show dictionary values
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      with_items: 
+        - "{{ usersa }}"
+        - "{{ usersb }}"

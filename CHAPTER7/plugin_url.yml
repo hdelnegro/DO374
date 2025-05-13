@@ -1,0 +1,11 @@
+---
+- name: demo lookup query
+  hosts: localhost
+  gather_facts: false
+  vars:
+    output: "{{ lookup('ansible.builtin.url', 'https://hub.lab.example.com/ui/', validate_certs=false) }}"
+  
+  tasks:
+    - name: Shows the lookup
+      ansible.builtin.debug:
+        msg: "{{ output }}"

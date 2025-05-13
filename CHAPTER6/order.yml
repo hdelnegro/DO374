@@ -1,0 +1,9 @@
+---
+- name: Testing host order
+  hosts: all
+  order: sorted
+
+  tasks:
+    - name: print ansible host
+      ansible.builtin.debug:
+        var: ansible_host

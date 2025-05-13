@@ -1,0 +1,25 @@
+---
+- name: Become the user "manager"
+  hosts: servera.lab.example.com
+  become: true
+  vars:
+    ansible_become: false
+  tasks:
+    - name: Show the user used by this play
+      ansible.builtin.debug:
+        var: ansible_user_id
+
+- name: Do not use privilege escalation
+  hosts: servera.lab.example.com
+  become: false
+  tasks:
+    - name: Show the user used by this play
+      ansible.builtin.debug:
+        var: ansible_user_id
+
+- name: Use privilege escalation based on defaults
+  hosts: servera.lab.example.com
+  tasks:
+    - name: Show the user used by this play
+      ansible.builtin.debug:
+        var: ansible_user_id

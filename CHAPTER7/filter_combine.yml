@@ -1,0 +1,9 @@
+---
+- name: combine demo
+  hosts: localhost
+  gather_facts: false
+  
+  tasks:
+    - name: The 'combine' filter combines two dictionaries into one
+      ansible.builtin.debug:
+        msg: "{{ {'A':1,'B':2} | combine({'B':4,'C':5}) }}"

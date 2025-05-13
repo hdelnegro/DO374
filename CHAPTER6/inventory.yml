@@ -1,0 +1,23 @@
+all:
+  children:
+    all_servers:
+      children:
+        web_servers:
+          children:
+            active_web_servers:
+              hosts:
+                serverb.lab.example.com:
+                servere.lab.example.com:
+              vars:
+                demoinventory: somos active
+            inactive_web_servers:
+              hosts:
+                serverf.lab.example.com:
+                serverd.lab.example.com:
+                serverc.lab.example.com:
+              vars:
+                demoinventory: somos inactive
+      hosts:
+        servera.lab.example.com:
+          demoinventory: soy servera
+    ungrouped: {}

@@ -1,0 +1,16 @@
+---
+- name: Both tasks have the same result
+  hosts: localhost
+  gather_facts: false
+  vars:
+    mynetworks:
+      - 10.0.1.0/24
+      - 10.0.2.0/24
+      - 10.0.3.0/24
+      - 10.0.100.0/24
+      - 2001:db8::/64
+      - 2001:db8:0:1::/64
+  tasks:
+    - name: Filter example
+      ansible.builtin.debug:
+        msg: "{{ mynetworks | ansible.utils.cidr_merge }}"

@@ -1,0 +1,9 @@
+- name: Default filter examples
+  hosts: localhost
+  vars:
+#    demovar: cualquier texto
+  tasks:
+    - name: Check pattern value
+      ansible.builtin.debug:
+        msg: "{{ demovar | default(omit) }}"
+

@@ -1,0 +1,14 @@
+---
+- name: hashes demo
+  hosts: localhost
+  gather_facts: false
+  vars:
+    plain: "algo de texto"
+  tasks:
+    - name: Demo of different hashes
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      loop:
+        - "{{ plain | hash('sha1') }}"
+        - "{{ plain | password_hash('sha512') }}"
+        - "{{ plain | b64encode }}"

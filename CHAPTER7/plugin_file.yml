@@ -1,0 +1,11 @@
+---
+- name: demo lookup query
+  hosts: localhost
+  gather_facts: false
+  vars:
+    hostsvar: "{{ query('ansible.builtin.file', 'hosts', 'issue') }}"
+  
+  tasks:
+    - name: Shows the lookup
+      ansible.builtin.debug:
+        msg: "{{ hostsvar }}"

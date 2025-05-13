@@ -1,0 +1,24 @@
+---
+- name: convert demo
+  hosts: localhost
+  gather_facts: false
+  
+  tasks:
+    - name: converting between dictionaries and lists
+      vars:
+        characters_dict:
+          Douglas: Human
+          Marvin: Robot
+          Arthur: Human
+        characters_items:
+          - key: Douglas
+            value: Human
+          - key: Marvin
+            value: Robot
+          - key: Arthur
+            value: Human
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      loop:
+        - "{{ characters_dict | dict2items }}"
+        - "{{ characters_items | items2dict }}"

@@ -1,0 +1,18 @@
+---
+- name:  demo
+  hosts: localhost
+  gather_facts: false
+  vars:
+    users:
+      demo1:
+        name: Demo User 1
+        mail: demo1@example.com
+      demo2:
+        name: Demo User 2
+        mail: demo2@example.com
+  tasks:
+    - name: show dictionary values
+      ansible.builtin.debug:
+        msg: "{{ item['key'] }} - {{ item['value']['name'] }} - {{ item['value']['mail'] }}"
+      with_dict: "{{ users }}"
+#      loop: "{{ users | dict2items }}"

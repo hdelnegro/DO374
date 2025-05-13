@@ -1,0 +1,26 @@
+---
+- name: Both tasks have the same result
+  hosts: localhost
+  gather_facts: false
+  vars:
+    listips:
+      - 192.168.2.1
+      - 10.0.0.128/25
+      - 172.24.10.0/255.255.255.0
+      - 172.24.10.0/255.255.255.255
+      - ff02::1
+      - ::1
+      - 2001::1/64
+      - 2001::/64
+      - www.redhat.com    
+
+  tasks:
+    - name: Filter example
+      ansible.builtin.debug:
+#        msg: "{{ listips | ansible.utils.ipaddr }}"
+#        msg: "{{ listips | ansible.utils.ipaddr('private') }}"
+#        msg: "{{ '192.0.2.0/24' | ansible.utils.ipaddr('range_usable') }}"
+#        msg: "{{ '192.0.2.0/24' | ansible.utils.ipaddr(8) }}"
+#        msg: "{{ '192.0.2.0/24' | ansible.utils.network_in_usable('192.0.2.250') }}"
+        msg: "{{ '192.0.2.5/24' | ansible.utils.ipaddr('next_usable') }}"
+

@@ -1,0 +1,19 @@
+---
+- name:  demo
+  hosts: localhost
+  gather_facts: false
+  vars:
+    users:
+      - name: alice
+        keys:
+          - alice_key1.pub
+          - alice_key2.pub
+      - name: bob
+        keys:
+          - bob_key1.pub
+
+  tasks:
+    - name: show dictionary values
+      ansible.builtin.debug:
+        msg: "User {{ item[0]['name'] }} has key file {{ item[1] }}"
+      loop: "{{ users | subelements('keys') }}"

@@ -1,0 +1,21 @@
+- name: Default filter examples
+  hosts: localhost
+  vars:
+    list:
+      - 2
+      - 4
+      - 10
+      - 10
+      - 6
+      - 8
+      - 10
+      - 6
+      - 2
+      - 2
+      - 6
+      - 12
+  tasks:
+    - name: Manipulate values
+      ansible.builtin.debug:
+        msg: "{{ list | unique | sort }}"
+
